@@ -13,7 +13,7 @@
     "version": "npm run build",
     "postpublish": "git push; git push --tags; rm -rf lib"
   },
-  "main": "index.js",
+  "main": "lib/index.js",
   "types": "index.d.ts",
   "files": [
     "lib/",
