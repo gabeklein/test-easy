@@ -2,14 +2,14 @@ import { Express } from "express"
 import prettyjson from "prettyjson";
 import request, { RequestCallback } from "request";
 
-let url = "http://localhost:7101";
+let url = "http://localhost:3000";
 
 export function use(
   endpoint: number | string | Express, 
   port: number = 7101){
 
   if(typeof endpoint == "number"){
-    url = url.replace("7101", String(endpoint))
+    url = url.replace("3000", String(endpoint))
   }
 
   else if(typeof endpoint == "string")
@@ -18,7 +18,7 @@ export function use(
   else {
     endpoint.listen(port);
     console.log(`Service listening on port ${port}`);
-    url = url.replace("7101", String(port))
+    url = url.replace("3000", String(port))
   }
 }
 
