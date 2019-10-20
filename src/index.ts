@@ -70,8 +70,10 @@ function printResponse(
 ): RequestCallback {
 
   return (err, response, body) => {
-    if(err)
+    if(err){
       console.error(err);
+      return
+    }
 
     const { statusCode, statusMessage } = response;
     
