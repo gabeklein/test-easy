@@ -2,25 +2,23 @@ import { Express } from "express"
 import prettyjson from "prettyjson";
 import request, { RequestCallback } from "request";
 
-let url = "http://localhost:3000";
+let url = "http://localhost:7101";
 
 export function use(
-  replace: number | string | Express, 
-  port: number = 3000){
+  endpoint: number | string | Express, 
+  port: number = 7101){
 
-  if(typeof replace == "number"){
-    if(replace !== 3000)
-      url = url.replace("3000", String(replace))
+  if(typeof endpoint == "number"){
+    url = url.replace("7101", String(endpoint))
   }
 
-  else if(typeof replace == "string")
-    url = replace.replace(/\/?$/, "");
+  else if(typeof endpoint == "string")
+    url = endpoint.replace(/\/?$/, "");
 
   else {
-    replace.listen(port);
+    endpoint.listen(port);
     console.log(`Service listening on port ${port}`);
-    if(port !== 3000)
-      url = url.replace("3000", String(port))
+    url = url.replace("7101", String(port))
   }
 }
 
@@ -76,7 +74,7 @@ function printResponse(
     }
 
     const { statusCode, statusMessage } = response;
-    
+
     if(typeof body === "object")
       body = prettyjson.render(body).replace(/\n/g, "\n  ");
   
