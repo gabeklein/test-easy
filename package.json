@@ -1,14 +1,16 @@
 {
   "name": "@gabeklein/test-resource",
   "version": "0.0.0",
-  "description": "Simple functions to easily test a REST app with express.",
+  "description": "Simple functions to easily test a REST endpoint.",
   "author": "Gabe <gabe@termtm.com>",
   "repository": "git@github.com:gabeklein/test-resource.git",
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
+    "build": "tsc",
     "postversion": "npm publish",
+    "version": "npm run build",
     "postpublish": "git push; git push --tags; rm -rf lib"
   },
   "main": "index.js",
