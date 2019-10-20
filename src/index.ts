@@ -69,7 +69,12 @@ function printResponse(
   query: any
 ): RequestCallback {
 
-  return (err, { statusCode, statusMessage }, body) => {
+  return (err, response, body) => {
+    if(err)
+      console.error(err);
+
+    const { statusCode, statusMessage } = response;
+    
     if(typeof body === "object")
       body = prettyjson.render(body).replace(/\n/g, "\n  ");
   
