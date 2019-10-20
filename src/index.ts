@@ -5,62 +5,62 @@ import request, { RequestCallback } from "request";
 let url = "http://127.0.0.1:3000/";
 
 export function use(
-  endpoint: number | string | Express, 
+  replace: number | string | Express, 
   port: number = 3000){
 
-  if(typeof endpoint == "number"){
-    if(endpoint !== 3000)
-      url = url.replace("3000", String(endpoint))
+  if(typeof replace == "number"){
+    if(replace !== 3000)
+      url = url.replace("3000", String(replace))
   }
 
-  else if(typeof endpoint == "string")
-    url = endpoint.replace(/\/?$/, "/");
+  else if(typeof replace == "string")
+    url = replace.replace(/\/?$/, "/");
 
   else {
-    endpoint.listen(port);
+    replace.listen(port);
     console.log(`Service listening on port ${port}`);
     if(port !== 3000)
       url = url.replace("3000", String(port))
   }
 }
 
-export function GET(url: string, query: any = "", headers = {}){
+export function GET(dir: string, query: any = "", headers = {}){
   request.get(
-    url + url,
+    url + dir,
     { json: true, qs: query, headers },
-    printResponse(url, query)
+    printResponse(dir, query)
   )
 }
 
-export function POST(url: string, data = {}, headers = {}){
+export function POST(dir: string, data = {}, headers = {}){
   request.post(
-    url + url,
+    url + dir,
     { json: true, form: data, headers },
-    printResponse(url, data)
+    printResponse(dir, data)
   )
 }
 
-export function PUT(url: string, data = {}, headers = {}){
+export function PUT(dir: string, data = {}, headers = {}){
   request.post(
-    url + url,
+    url + dir,
     { json: true, form: data, headers },
-    printResponse(url, data)
+    printResponse(dir, data)
   )
 }
 
-export function PATCH(url: string, data = {}, headers = {}){
+export function PATCH(dir: string, data = {}, headers = {}){
   request.patch(
-    url + url,
+    url + dir,
     { json: true, form: data, headers },
-    printResponse(url, data)
+    printResponse(dir, data)
   )
 }
 
-export function DELETE(url: string, headers = {}){
+export function DELETE(dir: string, headers = {}){
   request.delete(
-    url + url,
+    url + dir,
     { json: true, headers },
-    printResponse(url, {})
+    printResponse(dir, {})
   )
 }
 
