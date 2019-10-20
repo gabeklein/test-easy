@@ -1,6 +1,6 @@
 {
   "name": "@gabeklein/test-resource",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Simple functions to easily test a REST endpoint.",
   "author": "Gabe <gabe@termtm.com>",
   "repository": "git@github.com:gabeklein/test-resource.git",
