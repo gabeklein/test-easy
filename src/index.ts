@@ -2,7 +2,7 @@ import { Express } from "express"
 import prettyjson from "prettyjson";
 import request, { RequestCallback } from "request";
 
-let url = "http://127.0.0.1:3000/";
+let url = "http://127.0.0.1:3000";
 
 export function use(
   replace: number | string | Express, 
@@ -14,7 +14,7 @@ export function use(
   }
 
   else if(typeof replace == "string")
-    url = replace.replace(/\/?$/, "/");
+    url = replace.replace(/\/?$/, "");
 
   else {
     replace.listen(port);
