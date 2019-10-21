@@ -23,41 +23,41 @@ export function use(
 }
 
 export function GET(dir: string, query: any = "", headers = {}){
-  request.get(
+  request(
     url + dir,
-    { json: true, qs: query, headers },
+    { method: "GET", json: true, qs: query, headers },
     printResponse(dir, query)
   )
 }
 
 export function POST(dir: string, data = {}, headers = {}){
-  request.post(
+  request(
     url + dir,
-    { json: true, form: data, headers },
+    { method: "POST", json: data, headers },
     printResponse(dir, data)
   )
 }
 
 export function PUT(dir: string, data = {}, headers = {}){
-  request.post(
+  request(
     url + dir,
-    { json: true, form: data, headers },
+    { method: "PUT", json: data, headers },
     printResponse(dir, data)
   )
 }
 
 export function PATCH(dir: string, data = {}, headers = {}){
-  request.patch(
+  request(
     url + dir,
-    { json: true, form: data, headers },
+    { method: "PATCH", json: data, headers },
     printResponse(dir, data)
   )
 }
 
 export function DELETE(dir: string, headers = {}){
-  request.delete(
+  request(
     url + dir,
-    { json: true, headers },
+    { method: "DELETE", json: true, headers },
     printResponse(dir, {})
   )
 }
