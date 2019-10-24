@@ -1,6 +1,6 @@
 {
   "name": "@gabeklein/test-easy",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Simple functions to easily test a REST endpoint.",
   "author": "Gabe <gabe@termtm.com>",
   "repository": "git@github.com:gabeklein/test-easy.git",
