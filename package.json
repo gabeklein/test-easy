@@ -8,9 +8,10 @@
     "access": "public"
   },
   "scripts": {
+    "version": "npm run build",
+    "prebuild": "rm -rf lib",
     "build": "tsc",
     "postversion": "npm publish",
-    "version": "npm run build",
     "postpublish": "git push; git push --tags; rm -rf lib"
   },
   "main": "lib/index.js",
